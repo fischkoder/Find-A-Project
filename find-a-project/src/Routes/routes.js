@@ -21,7 +21,7 @@ export default function Routes() {
       <Route path="/signin" exact component={SignInForm} />
       <Route path="/Profile" exact component={Profile} />
       <Route path="/Setting" exact component={Setting}/>
-      <Route path="/post/getPost/:id" exact component={Detail} />
+      <Route path="/getPost/:id" exact component={Detail} />
       <Route path="/About" exact component={ComingSoonPage}/>
       <Route path="/Settings" exact component={SetProfile}/>
       <Route path="/Profile/:id" exact component={Profile} />
