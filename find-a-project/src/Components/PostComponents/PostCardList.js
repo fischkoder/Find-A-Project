@@ -19,7 +19,7 @@ export default function PostCardList() {
     })
 
     const getData = () => {
-        return fetchData('http://localhost:5000/post/getPosts').then((result) => {
+        return fetchData('https://research-project-old-fish.herokuapp.com/post/getPosts').then((result) => {
             setPostList(result)
             setIsLoading(false)
         }).catch((err) => {
