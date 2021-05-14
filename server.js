@@ -25,11 +25,14 @@ app.use('/profile', profileRoute);
 app.use('/team', teamRoute);
 app.use('/comment',commentRoute);
 app.use('/application',applicationRoute);
+
+if (process.env.NODE_ENV === 'production') {
 app.use(express.static(path.join(__dirname, "find-a-project", "build")));
 
 app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname, "find-a-project", "build", "index.html"));
     });
+}
 
 mongoose.connect(mongoURI,{useNewUrlParser: true, useUnifiedTopology: true})
         .then(() => app.listen(process.env.PORT || port, () => {
