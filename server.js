@@ -8,6 +8,7 @@ const profileRoute = require('./routes/profile.js');
 const teamRoute = require('./routes/team.js');
 const commentRoute = require('./routes/comment.js');
 const applicationRoute = require('./routes/application');
+const path = require("path")
 const app = express();
 const port = 5000;
 
@@ -24,6 +25,11 @@ app.use('/profile', profileRoute);
 app.use('/team', teamRoute);
 app.use('/comment',commentRoute);
 app.use('/application',applicationRoute);
+app.use(express.static(path.join(__dirname, "find-a-project", "build")));
+
+app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "find-a-project", "build", "index.html"));
+    });
 
 mongoose.connect(mongoURI,{useNewUrlParser: true, useUnifiedTopology: true})
         .then(() => app.listen(process.env.PORT || port, () => {
