@@ -80,7 +80,7 @@ export default function Profile() {
   });
 
   const handleSubmit = () => {
-    axios.post('http://localhost:5000/profile/updateProfile/' + userId, tempProfile).then(res => {
+    axios.post('https://research-project-old-fish.herokuapp.com/profile/updateProfile/' + userId, tempProfile).then(res => {
       console.log(res);
       window.location.href = '/Profile'
     })
