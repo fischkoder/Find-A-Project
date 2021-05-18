@@ -40,7 +40,7 @@ export default function Profile() {
         const { result } = JSON.parse(localStorage.getItem('profile'));
         const { _id } = result;
         setUserId(_id);
-        axios.get('http://localhost:5000/profile/getProfile/' + _id).then(res => {
+        axios.get('https://research-project-old-fish.herokuapp.com/profile/getProfile/' + _id).then(res => {
           setTempProfile(res.data.profile);
           setIsLoading(false);
         });

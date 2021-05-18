@@ -34,7 +34,7 @@ app.get("*", (req, res) => {
     });
 }
 
-mongoose.connect(mongoURI,{useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(mongoURI,{useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false})
         .then(() => app.listen(process.env.PORT || port, () => {
         console.log('Server started, listening at localhost:5000');
         }))
